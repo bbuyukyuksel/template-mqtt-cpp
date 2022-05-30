@@ -21,12 +21,11 @@ void on_message(mosquitto *mosq, void *obj, const mosquitto_message *msg) {
 }
 
 int main() {
-
 	MosquittoSubscriber sub("subscriber", 12, on_connect, on_message);
 	sub.Start();
 	
 	std::this_thread::sleep_for(std::chrono::seconds::duration(3));
-	
+
 	MosquittoPublisher publisher("publisher");
 
 	for (int j = 0; j < 2; ++j)
@@ -41,10 +40,6 @@ int main() {
 
 	}
 
-	
 	system("pause");
-
-
-
 	return 0;
 }
